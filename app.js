@@ -1,6 +1,7 @@
 import express from "express"              // moodulo para usar todo lo de abajo
 import "dotenv/config.js"                  //configuracion del archivo .env
 import './config/database.js'             //requiero la configuracion de la db
+// import { CreateHttpError } from "http-errors";
 import path from "path";                   //maneja las rutas
 import cookieParser from "cookie-parser";    //libreria para ver sesiones.. no se va  usar
 import logger from "morgan"                 //libreria
@@ -14,6 +15,7 @@ let app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//middlewares
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

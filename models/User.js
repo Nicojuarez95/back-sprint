@@ -11,7 +11,7 @@ let schema = new mongoose.Schema({
     is_verified: { type: Boolean, required: true },
     verify_code: { type: String, required: true }
 },{
-    timestramps: true
+    timestamps: true
 })
 
 let User = mongoose.model('users',schema)
