@@ -14,7 +14,8 @@ const controller = {
         req.body.password = bcryptjs.hashSync(req.body.password, 10)
         try {
             await User.create(req.body)
-            return res.status(200).send('user registered!')
+            return res.status(200).json({
+                message:'user registered!'})
         } catch (error) {
             next(error)
         }
@@ -28,7 +29,8 @@ const controller = {
                 { new: true } //para que devuelva el objeto modificado
             )
             user.password = null //para proteger la contraseña
-            return res.status(200).send('logged in user!')
+            return res.status(200).json({
+                message:'logged in user!'})
         } catch (error) {
             next(error)
         }
@@ -42,7 +44,8 @@ const controller = {
                 { is_online: false },
                 { new: true }
             )
-            return res.status(200).send('offline user!')
+            return res.status(200).json({
+                message:'offline user!'})
         } catch (error) {
             next(error)
         }
