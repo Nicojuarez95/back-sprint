@@ -3,8 +3,8 @@ import Chapter from '../models/Chapter.js'
 
 let router = express.Router()
 
-router.get('./',(req, res) => {
-        return res.status(200).send/('aca estarian los mangas')
+router.get('/',(req, res) => {
+        return res.status(200).send/('aca estarian los capitulos creados')
     }
 )
 
@@ -15,7 +15,8 @@ router.post('/', (req, res) =>{
             {
                 success: true,
                 chapter: chapter,
-                id: chapter._id
+                id: chapter._id,
+                menssage:'se creo'
             }
         )
     } catch(error){
