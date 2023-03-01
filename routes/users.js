@@ -2,29 +2,32 @@ import express from 'express'
 import User from './../models/User.js'
 let router = express.Router();
 
-function authorIsActive(req,res,next){
-    //esto viene de passport
-    req.user = {
-        is_author: false,
-        is_active: false
-    }
-    //tener otro middle o dentr5o del mismo para verificar si es autor
-    if(req.user.is_author){
-        if(req.user.is_active){
-            return next()
-        }
-    }
-    res.status(400).json({
-        message: "bad request"
-    })
-}
+// function authorIsActive(req,res,next){
+//     //esto viene de passport
+//     req.user = {
+//         is_author: false,
+//         is_active: false
+//     }
+//     //tener otro middle o dentr5o del mismo para verificar si es autor
+//     if(req.user.is_author){
+//         if(req.user.is_active){
+//             return next()
+//         }
+//     }
+//     res.status(400).json({
+//         message: "bad request"
+//     })
+// }
 
 
 
 /* GET users listing. */
-router.get('/', /*passport.authenticate()*/ authorIsActive, function(req, res, next) {
-  res.send('Aca se ven los usuarios');
-});
+// router.get('/', /*passport.authenticate()*/ authorIsActive, function(req, res, next) {
+//   res.send('Aca se ven los usuarios');
+// });
+router.get('/', function(req, res, next) {
+    res.send('aca tendrian que estar los usuarios');
+  });
 
 router.post(//metodo para crear usuarios
     '/',
