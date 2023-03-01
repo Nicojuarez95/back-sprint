@@ -6,7 +6,8 @@ function passwordIsOk(req, res, next) {
     if (bcryptjs.compareSync(form_pass,db_pass)) {
         return next()
     }
-    return res.status(400).send('wrong credentials!')
+    return res.status(400).json({
+        message:'wrong credentials!'})
 }
 
 export default passwordIsOk
