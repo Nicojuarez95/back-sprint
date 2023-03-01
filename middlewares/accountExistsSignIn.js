@@ -16,7 +16,7 @@ async function accountExistsSignIn(req,res,next) {
         return next()
     }
     	  return res.status(400).json({
-            message: 'user does not exist!'})
+            message: 'Wrong credentials'})
 }
 
 export default accountExistsSignIn
