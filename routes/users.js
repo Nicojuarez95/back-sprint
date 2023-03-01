@@ -1,5 +1,10 @@
 import express from 'express'
-import User from './../models/User.js'
+import validator from ''
+import schema from '../'
+import controller from '../controllers/auth/auth.js'
+import accountExistsSignUp from '../middlewares/accountExistsSignUp.js'
+const {sign_up} = controller
+
 let router = express.Router();
 
 function authorIsActive(req,res,next){
@@ -56,6 +61,8 @@ router.post(//metodo para crear usuarios
     }
     
 )
+
+router.post('/signup',validator(schema),accountExistsSignUp,sign_up)
 
 // module.exports = router;
 export default router
