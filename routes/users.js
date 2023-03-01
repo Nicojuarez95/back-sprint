@@ -3,7 +3,14 @@ import validator from ''
 import schema from '../'
 import controller from '../controllers/auth/auth.js'
 import accountExistsSignUp from '../middlewares/accountExistsSignUp.js'
-const {sign_up} = controller
+import accountExistsSignIn from '../middlewares/accountExistsSignIn.js'
+import accountHasBeenVerified from '../middlewares/accountHasBeenVerified.js'
+import passwordls from '../middlewares/passwordIsOk.js'
+import passport from '../middlewares/passport.js'
+import passwordIsOk from '../middlewares/passwordIsOk.js'
+
+
+const {sign_up, sign_in, sign_out} = controller
 
 let router = express.Router();
 
@@ -63,6 +70,8 @@ router.post(//metodo para crear usuarios
 )
 
 router.post('/signup',validator(schema),accountExistsSignUp,sign_up)
+router.post('/signin',validator(schema_signin), accountExistsSignIn,accountHasBeenVerified, passwordIsOk,sign_in )
+router.post('/signout', passport.authenticate('jwt',{session:false}, sign_out)) 
 
 // module.exports = router;
 export default router
