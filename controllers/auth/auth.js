@@ -16,6 +16,7 @@ const controller = {
         try {
             await User.create(req.body)
             return res.status(200).json({
+                succes: true,
                 message:'user registered!'})
         } catch (error) {
             next(error)
@@ -36,6 +37,7 @@ const controller = {
                 {expiresIn: 60*60*24}
                 )
             return res.status(200).json({
+                succes: true,
                 message:'logged in user!',
                 token: token
             })
@@ -53,11 +55,30 @@ const controller = {
                 { new: true }
             )
             return res.status(200).json({
+                succes: true,
                 message:'offline user!'})
         } catch (error) {
             next(error)
         }
-    }
+    },
+
+    sign_in_token: async (req, res, next) => {
+        try {
+            let user = await User.findOneAndUpdate(
+                { email: req.user.email }, //parametro de busqueda
+                { is_online: true }, //parámetro a modificar
+                { new: true } //para que devuelva el objeto modificado
+            )
+            user.password = null //para proteger la contraseña
+            const token = res.token
+            return res.status(200).json({
+                succes: true,
+                message:'logged in user!'
+            })
+        } catch (error) {
+            next(error)
+        }
+    },
 
 }
 

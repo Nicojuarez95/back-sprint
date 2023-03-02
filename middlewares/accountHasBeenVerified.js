@@ -3,6 +3,7 @@ async function accountHasBeenVerified(req,res,next) {
         return next()
     }
     	  return res.status(400).json({
+            succes: false,
             message:'has not been verified!'})
 }
 
