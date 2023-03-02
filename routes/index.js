@@ -1,4 +1,4 @@
-import userRouter from './users.js'
+import userRouter from './auth.js'
 // import createError from 'http-errors';
 
 

@@ -10,12 +10,21 @@ const schema = Joi.object({
     "string.min": "The name must have at least 3 characteres",
     "string.max": "The name must have a maximum of 20 characteres",
   }),
-  email: Joi.string()
+  email: Joi
+    .string()
     .required()
     .min(8)
     .email({ minDomainSegments: 2 })
     .messages({
     invalid: "Not an objets",
+    }),
+  photo: Joi.string()
+    .uri()
+    .required()
+    .min(8)
+    .messages({
+      "string.required": "photo required",
+      "uri.required": "url required"
     }),
   password: Joi
     .string()
@@ -23,8 +32,8 @@ const schema = Joi.object({
     .min(8)
     .max(50)
     .messages({
-    "string.min": "The name must have at least 3 characteres",
-    "string.max": "The name must have a maximum of 20 characteres", 
+    "string.min": "The password must have at least 8 characteres",
+    "string.max": "The password must have a maximum of 20 characteres", 
   })
 });
 
