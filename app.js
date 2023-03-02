@@ -1,13 +1,13 @@
-import express from "express"              // moodulo para usar todo lo de abajo
-import "dotenv/config.js"                  //configuracion del archivo .env
-import './config/database.js'             //requiero la configuracion de la db
-// import { CreateHttpError } from "http-errors";
-import path from "path";                   //maneja las rutas
-import cookieParser from "cookie-parser";    //libreria para ver sesiones.. no se va  usar
-import logger from "morgan"                 //libreria
-import indexRouter from './routes/index.js'     //traen las rutas de los enpoints
+import "dotenv/config.js"   //configuracion del archivo .env
+import express from "express"
+import path from "path" 
+import cookieParser from "cookie-parser" 
+import logger from "morgan" 
+import { __dirname } from "./utils.js"
+import indexRouter from './routes/index.js'
+import mangaRouter from '../minga-back/routes/manga.js'
 import cors from 'cors'
-import { __dirname } from "./utils.js";
+import './config/database.js'  
 
 let app = express();
 
@@ -25,5 +25,6 @@ app.use(cors());
 
 //app.use para usar middlewares para enrutarme con esas "palabritas"
 app.use('/', indexRouter);
+app.use('/manga', mangaRouter);
 
 export default app

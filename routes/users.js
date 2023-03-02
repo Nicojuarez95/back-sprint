@@ -8,7 +8,7 @@ function authorIsActive(req,res,next){
         is_author: false,
         is_active: false
     }
-    //tener otro middle o dentr5o del mismo para verificar si es autor
+    //tener otro middle o dentro del mismo para verificar si es autor
     if(req.user.is_author){
         if(req.user.is_active){
             return next()

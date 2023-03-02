@@ -1,4 +1,5 @@
 import userRouter from './users.js'
+// import mangas from './mangas.js'
 // import { CreateHttpError } from 'http-errors';
 
 import express from 'express'
@@ -12,5 +13,6 @@ router.get('/', function(req, res, next) {
 //rutas de todos los recursos
 //a traves del metodo .use() le indico al enrutador principal que use esas rutas con esa palabrita(endpoint)
 router.use('/users',userRouter)
+// router.use('./mangas', mangas)
 
 export default router
