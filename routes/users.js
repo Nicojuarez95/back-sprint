@@ -17,7 +17,8 @@ let router = express.Router();
 
 router.post('/signup', validator(schema), accountExistsSignUp, sign_up)
 router.post('/signin', validator(schema_signin), accountExistsSignIn,accountHasBeenVerified, passwordIsOk, sign_in )
-router.post('/signout', passport.authenticate('jwt',{session:false}, sign_out)) 
+router.post('/signout', passport.authenticate('jwt',{session:false}), sign_out) 
+
 
 // module.exports = router;
 export default router

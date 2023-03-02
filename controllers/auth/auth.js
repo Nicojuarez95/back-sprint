@@ -1,6 +1,7 @@
 import User from './../../models/User.js'
 import Crypto from 'crypto'
 import bcryptjs from 'bcryptjs'
+import jsonwebtoken from 'jsonwebtoken'
 
 const controller = {
 
@@ -24,23 +25,30 @@ const controller = {
     sign_in: async (req, res, next) => {
         try {
             let user = await User.findOneAndUpdate(
-                { mail: req.user.mail }, //parametro de busqueda
+                { email: req.user.email }, //parametro de busqueda
                 { is_online: true }, //parámetro a modificar
                 { new: true } //para que devuelva el objeto modificado
             )
             user.password = null //para proteger la contraseña
+            const token = jsonwebtoken.sign(
+                {id: user._id},
+                process.env.SECRET,
+                {expiresIn: 60*60*24}
+                )
             return res.status(200).json({
-                message:'logged in user!'})
+                message:'logged in user!',
+                token: token
+            })
         } catch (error) {
             next(error)
         }
     },
 
     sign_out: async (req, res, next) => {
-        const { mail } = req.user
+        const { email } = req.user
         try {
             await User.findOneAndUpdate(
-                { mail },
+                { email },
                 { is_online: false },
                 { new: true }
             )
