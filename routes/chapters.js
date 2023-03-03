@@ -10,6 +10,8 @@ router.get('/',(req, res) => {
 
 router.post('/', (req, res) =>{
     try{
+        req.body.manga_id = "63ffc5acd83adc5aaa98a26c"
+        req.body.cover_photo = false //borrar despues de crear el input
         let chapter = Chapter.create(req.body)
         return res.status(201).json(
             {
