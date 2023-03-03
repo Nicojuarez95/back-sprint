@@ -2,6 +2,9 @@ import userRouter from './users.js'
 import categoriasRouter from './categories.js'
 import mangasRouter from './mangas.js'
 // import { CreateHttpError } from 'http-errors';
+// import userRouter from './auth.js'
+// import createError from 'http-errors';
+
 
 import express from 'express'
 let router = express.Router();
@@ -13,8 +16,9 @@ router.get('/', function(req, res, next) {
 
 //rutas de todos los recursos
 //a traves del metodo .use() le indico al enrutador principal que use esas rutas con esa palabrita(endpoint)
-router.use('/users',userRouter)
+// 
 router.use('/mangas', mangasRouter)
 router.use('/categorias', categoriasRouter)
+router.use('/auth',userRouter)
 
 export default router

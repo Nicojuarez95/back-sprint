@@ -1,5 +1,5 @@
 import router from '../routes/users.js';
-import schema from '../schema/MangaCreate.js';
+import schema from '../schema/mangas.js';
 
 // @schema es el esquema de validación del joi (es necesario importar el shcema en el archivo donde se ejecute el middleware)
 // @validate es un método de joi para validar los datos del schema requiere que invoquemos el schema de validación y necesita dos parámetros para funcionar
