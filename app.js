@@ -5,7 +5,6 @@ import cookieParser from "cookie-parser"
 import logger from "morgan" 
 import { __dirname } from "./utils.js"
 import indexRouter from './routes/index.js'
-import mangaRouter from '../minga-back/routes/manga.js'
 import cors from 'cors'
 import './config/database.js'  
 
@@ -25,6 +24,6 @@ app.use(cors());
 
 //app.use para usar middlewares para enrutarme con esas "palabritas"
 app.use('/', indexRouter);
-app.use('/manga', mangaRouter);
+
 
 export default app
