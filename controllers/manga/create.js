@@ -1,4 +1,4 @@
-import Manga from "../../models/Manga.js";
+import Manga from '../../models/Manga.js';
 const createManga = {
         create: async (req, res) => { //create es el metodo
                 try {

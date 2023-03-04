@@ -1,9 +1,6 @@
 import "dotenv/config.js";
-import { MongoClient } from "mongodb";
 import "../../config/database.js";
-
 const uri = process.env.MONGO_LINK;
-
 const categories = [
     {
         name: "shonen",
@@ -40,26 +37,4 @@ const categories = [
     },
 ];
 
-const client = new MongoClient(uri, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-});
-
-(async () => {
-    try {
-        await client.connect();
-        console.log("Conectado correctamente a la base de datos");
-
-        const database = client.db();
-        const collection = database.collection("categories");
-
-        const result = await collection.insertMany(categories)
-        console.log( 'result.insertedCount'  + 'documentos insertados en la colección') 
-    }catch (err) {
-
-        console.log(err.stack);
-    } finally {
-        await client.close();
-        console.log("Desconectado de la base de datos");
-    }
-})();
+categories.insertMany(categories);

@@ -1,4 +1,4 @@
-import Author from '../../routes/users.js'
+import Author from '../../models/Author.js'
 
 
 

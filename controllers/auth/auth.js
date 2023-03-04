@@ -17,7 +17,9 @@ const controller = {
             await User.create(req.body)
             return res.status(200).json({
                 succes: true,
-                message:'user registered!'})
+                message:'user registered!'}),
+                user,
+                token
         } catch (error) {
             next(error)
         }
