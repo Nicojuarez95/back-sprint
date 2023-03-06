@@ -1,21 +1,17 @@
-import  chapter  from "../models/Chapter.js"
+import Chapter from "../models/Chapter.js"
 
-async function exists_order(req, res, next) {
-    let { order } = req.body
-    if (!order) {
-        let Chapter = await chapter.find().sort({ order: "-1" }).limit(1)
-        let nextOrder = chapter[0].order + 1
-        req.body.order = nextOrder
+async function existsOrder(req, res, next) {
+    let {manga_id, order}  = req.body
+    if(!order){
         return next()
+    }else{
+        let foundChapter = await Chapter.findOne({ order: order, manga_id: manga_id})
+        if (foundChapter) {
+            res.status(409).json({ mensaje: "Ya existe un documento con el valor especificado" });
+        } else {
+            next()
+        }
     }
-    let foundChapter = await chapter.findOne({ order })
-    if (foundChapter) {
-        req.body.success = false
-        req.body.sc = 400
-        req.body.data = [{ message: "Order already exists" }]
-        return defaultResponse(req, res)
-    }
-    return next()
 }
 
-export default exists_order
+export default existsOrder
