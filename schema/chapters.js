@@ -16,7 +16,7 @@ const schema = Joi.object({
             'string.base': 'Must be string type'
         }),
     pages: Joi
-        .string().uri()
+        .array().items(Joi.string().uri())
         .required()
         .min(1)
         .message({
