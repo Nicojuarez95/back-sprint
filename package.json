@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
-    "data_users": "node ./models/data/users"
+    "data_users": "node ./models/data/users",
+    "data_chapters": "node ./models/data/chapters"
   },
   "type": "module",
   "dependencies": {
@@ -16,6 +17,7 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
+    "joi": "^17.8.3",
     "joi-oid": "^1.1.2",
     "mongoose": "^6.9.3",
     "morgan": "~1.9.1"
