@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const categorySchema = new mongoose.Schema({
     name: { type: String, required: true },
-    descripcion: { type: String, required: true },
+    detail: { type: String, required: true },
     admin_id: { type: mongoose.Schema.Types.ObjectId,ref:'admin_id' ,required: true },
 },
     {

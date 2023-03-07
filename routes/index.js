@@ -1,6 +1,5 @@
 // import userRouter from '../routes/users.js'
 import mangasRouter from '../routes/mangas.js'
-import categoryRouter from "../routes/categories.js"
 // import { CreateHttpError } from 'http-errors';
 import usersRouter from '../routes/auth.js'
 import express from 'express'
@@ -16,7 +15,7 @@ router.get('/', function(req, res, next) {
 // 
 // router.use('/users' , userRouter)
 router.use('/mangas', mangasRouter)
-router.use("/categories", categoryRouter)
+// router.use("/categories", categoryRouter)
 router.use('/auth',usersRouter)
 
 export default router
