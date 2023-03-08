@@ -9,26 +9,27 @@ const controller = {
                 response: req.body,
             })
         } catch (error) {
-            res.status(404).json({
+            res.status(400).json({//buscar 404
                 success: false,
                 response: "Error al crear chapter",
             })
             console.log(error)
         }
-    },
-    read: async (req, res) => {
-        try {
-            let chapters = await chapter.find()
-            res.status(200).json({
-                success: true,
-                response: chapters,
-            })
-        } catch {
-            res.status(400).json({
-                success: false,
-                response: "Error al obtener el chapter",
-            })
-        }
     }
+    // ,
+    // read: async (req, res) => {
+    //     try {
+    //         let chapters = await chapter.find()
+    //         res.status(200).json({
+    //             success: true,
+    //             response: chapters,
+    //         })
+    //     } catch {
+    //         res.status(400).json({
+    //             success: false,
+    //             response: "Error al obtener el chapter",
+    //         })
+    //     }
+    // }
 }
 export default controller
