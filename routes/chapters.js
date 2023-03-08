@@ -1,4 +1,4 @@
-
+import passport from '../middlewares/passport.js'
 import controller from '../controllers/chapters/create.js'
 import express from 'express'
 import schema from '../schemas/chapters.js'
