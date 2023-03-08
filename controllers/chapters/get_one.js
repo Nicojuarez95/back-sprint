@@ -3,9 +3,9 @@ import Chapters from '../../models/Chapter.js'
 const controller = {
     get_one: async (req, res) => {
         try {
-            const one = await Chapters.findOne({_id:req.params.id}).sort({pageNumber: 1});
+            const one = await Chapters.findOne({_id:req.params.id}).select("pages _id").sort({pageNumber: 1});
             if(one) {
-                return res.status(200).json({Chapter: one})
+                return res.status(200).json({Chapters: one})
             } else {
                 return res.status(400).json({
                     success: false,
