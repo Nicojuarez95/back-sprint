@@ -1,4 +1,5 @@
 import userRouter from './auth.js'
+import chapterRouter from './chapters.js'
 // import createError from 'http-errors';
 
 
@@ -13,5 +14,7 @@ router.get('/', function(req, res, next) {
 //rutas de todos los recursos
 //a traves del metodo .use() le indico al enrutador principal que use esas rutas con esa palabrita(endpoint)
 router.use('/auth',userRouter)
+router.use('/chapters',chapterRouter)
+
 
 export default router
