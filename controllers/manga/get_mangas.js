@@ -15,7 +15,7 @@ const controller = {
             consultas.title = new RegExp(req.query.title.trim(),'i')
         }
         if (req.query.category_id) {
-            consultas.category_id = new RegExp(req.query.category_id.trim(),'i')
+            consultas.category_id = req.query.category_id.trim()
         }
         if (req.query.page) {
             pagination.page = req.query.page

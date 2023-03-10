@@ -14,7 +14,7 @@ const { all } = allControllers
 const { allMangas } = getMangas
 
 
-router.post("/", jwtmiddleware ,is_active, validator(mangaSchema),exist_title, create);
+router.post("/", jwtmiddleware ,is_active, validator(mangaSchema), exist_title, create);
 router.get("/", all);
 router.get("/view", allMangas)
 
