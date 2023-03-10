@@ -10,7 +10,5 @@ const schema = new mongoose.Schema(
         timestamps: true
     }
 )
-
 const Chapter = mongoose.model('chapters', schema)
-
 export default Chapter

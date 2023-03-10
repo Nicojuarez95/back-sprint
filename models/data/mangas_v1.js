@@ -696,5 +696,3 @@ export let mangas_v1 = [
         ]
     }
 ]
-
-// Category.insertMany(categories)

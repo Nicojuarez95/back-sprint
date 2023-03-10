@@ -8,7 +8,5 @@ const schema = new mongoose.Schema(
         timestamps: true
     }
 )
-
 const Category = mongoose.model('categories', schema)
-
 export default Category
