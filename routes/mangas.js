@@ -6,7 +6,7 @@ import allControllers from '../controllers/categories/all.js'
 import exist_title from '../middlewares/manga/exists_title.js'
 import is_active from '../middlewares/author/is_active.js'
 import getMangas from '../controllers/manga/get_mangas.js'
-import jwtmiddleware from '../middlewares/jwtmiddleware.js'
+import passport from '../middlewares/passport.js'
 
 let router = express.Router()
 const { create } = mangaCreate
@@ -14,7 +14,7 @@ const { all } = allControllers
 const { allMangas } = getMangas
 
 
-router.post("/", passport.authenticate("jwt", { session: false }) ,is_active, validator(mangaSchema),exist_title, create);
+router.post("/", passport.authenticate("jwt", { session: false }) ,is_active, validator(mangaSchema), exist_title, create);
 router.get("/", all);
 router.get("/view", allMangas)
 

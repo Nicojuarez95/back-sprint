@@ -27,7 +27,7 @@ const controller = {
     sign_in: async (req, res, next) => {
         try {
             let user = await User.findOneAndUpdate(
-                { email: req.user.email }, //parametro de busqueda
+                { mail: req.user.mail }, //parametro de busqueda
                 { is_online: true }, //parámetro a modificar
                 { new: true } //para que devuelva el objeto modificado
             )

@@ -10,7 +10,7 @@ const schema = Joi.object({
     "string.min": "The name must have at least 3 characteres",
     "string.max": "The name must have a maximum of 20 characteres",
   }),
-  email: Joi
+  mail: Joi
     .string()
     .required()
     .min(8)
