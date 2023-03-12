@@ -1,4 +1,4 @@
-import {Chapter} from '../../models/Chapter.js'
+import Chapter from '../../models/Chapter.js'
 
 async function get_chapter(req, res, next){
     const manga_id = req.quey.manga_id;
