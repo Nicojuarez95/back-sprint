@@ -1,4 +1,4 @@
-import User from './../../models/User.js'
+import User from '../../models/User.js'
 import Crypto from 'crypto'
 import bcryptjs from 'bcryptjs'
 import jsonwebtoken from 'jsonwebtoken'
@@ -17,7 +17,8 @@ const controller = {
             await User.create(req.body)
             return res.status(200).json({
                 succes: true,
-                message:'user registered!'})
+                message:'user registered!'
+            })    
         } catch (error) {
             next(error)
         }
@@ -39,7 +40,8 @@ const controller = {
             return res.status(200).json({
                 succes: true,
                 message:'logged in user!',
-                token: token
+                user,
+                token
             })
         } catch (error) {
             next(error)
