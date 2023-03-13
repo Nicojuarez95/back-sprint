@@ -1,46 +1,28 @@
 import  Chapter  from '../../models/Chapter.js'
 
 const controller = {
-    get_one: async (req, res, next) => {
+    get_one: async (req, res) => {
+        console.log(req.params.id)
         try {
-            let query = {
-                manga_id: '',
-                $or: [
-                    { _id: req.params.id },
-                    {}
-                ]
+            const one = await Chapter.findOne({ _id: req.params.id }).select('-_id -updatedAt -createdAt -__v').sort({ pages: 1, });
+            console.log(one)
+            if (one) {
+                return res.status(200).json({ Chapter: one });
+            } else {
+                return res.status(400).json({
+                    success: false,
+                    message: "This chapter does not exist",
+                });
             }
-            console.log(query)
-            if (req.query.order) {
-                query.$or[1] = { order: Number(req.query.order) + 1 }
-            }
-            if (req.query.manga_id) {
-                query.manga_id = req.query.manga_id
-            }
-
-            let chapter = await Chapter.find(query)
-                .select('-updatedAt -createdAt -__v')
-                .sort({ order: 1 })
-
-            console.log(chapter)
-
-            if(chapter.length > 0) {
-                return res.status(200).json({
-                    success: true,
-                    chapter: chapter[0],
-                    next: chapter?.[1]?._id
-                })
-            }
-
-            return res.status(404).json({
+        } catch (err) {
+            console.error(err);
+            return res.status(500).json({
                 success: false,
-            })
-
-        } catch (error) {
-            next(error)
+                message: "Internal server error",
+            });
         }
-    }
-}
+    },
+};
 
 export default controller;
 
