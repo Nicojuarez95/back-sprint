@@ -13,7 +13,7 @@ function authenticateToken(req, res, next) {
         if (err) return res.sendStatus(403)
         console.log(err)
         req.user = user
-
+        
         next()
     })
 }
