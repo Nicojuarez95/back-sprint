@@ -3,7 +3,7 @@ import Joi from "joi-oid";
 const schema = Joi.object({
     manga_id: Joi
         .objectId()
-        ,// .required(), agregar despues y sacar coma del principio de la linea
+        .required(),
     title: Joi
         .string()
         .required()
