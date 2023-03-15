@@ -7,6 +7,7 @@
  */
 const validator = (schema) => [
     (req, res, next) => {
+        
         const validation = schema.validate(req.body, {abortEarly:false})
         
         if (validation.error) { //si existe la propiedad error en la validacion: hay al menos un error en los datos del formulario

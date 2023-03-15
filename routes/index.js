@@ -2,7 +2,6 @@ import userRouter from './auth.js'
 import chapterRouter from './chapters.js'
 import mangasRouter from '../routes/mangas.js'
 import authorRouter from './authors.js'
-// import createError from 'http-errors';
 
 
 import express from 'express'
@@ -17,6 +16,7 @@ router.use('/auth',userRouter)
 router.use('/chapters',chapterRouter)
 router.use('/createmanga', mangasRouter)
 router.use('/authors', authorRouter)
+
 
 
 export default router

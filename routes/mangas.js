@@ -8,6 +8,7 @@ import is_active from '../middlewares/author/is_active.js'
 import getMangas from '../controllers/manga/get_mangas.js'
 import jwtmiddleware from '../middlewares/jwtmiddleware.js'
 
+
 let router = express.Router()
 const { create } = mangaCreate
 const { all } = allControllers
