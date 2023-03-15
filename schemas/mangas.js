@@ -1,7 +1,7 @@
 import Joi from 'joi-oid';
 
 const schema = Joi.object({
-    company_id: Joi
+    author_id: Joi
         .objectId(),
     title: Joi
         .string()

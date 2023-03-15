@@ -1,4 +1,4 @@
-import User from './../../models/User.js'
+import User from '../../models/User.js'
 import Crypto from 'crypto'
 import bcryptjs from 'bcryptjs'
 import jsonwebtoken from 'jsonwebtoken'
@@ -17,9 +17,8 @@ const controller = {
             await User.create(req.body)
             return res.status(200).json({
                 succes: true,
-                message:'user registered!'}),
-                user,
-                token
+                message:'user registered!'
+            })    
         } catch (error) {
             next(error)
         }
@@ -28,7 +27,7 @@ const controller = {
     sign_in: async (req, res, next) => {
         try {
             let user = await User.findOneAndUpdate(
-                { email: req.user.email }, //parametro de busqueda
+                { mail: req.user.mail }, //parametro de busqueda
                 { is_online: true }, //parámetro a modificar
                 { new: true } //para que devuelva el objeto modificado
             )
@@ -41,7 +40,8 @@ const controller = {
             return res.status(200).json({
                 succes: true,
                 message:'logged in user!',
-                token: token
+                user,
+                token
             })
         } catch (error) {
             next(error)

@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "nodemon ./bin/www",
     "data_users": "node ./models/data/users",
-    "data_categories": "node ./models/data/categories"
+    "data_chapters": "node ./models/data/chapters",
+    "data": "node ./models/data/data"
   },
   "type": "module",
   "dependencies": {
@@ -25,7 +26,8 @@
     "mongoose": "^6.9.3",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
-    "passport-jwt": "^4.0.1"
+    "passport-jwt": "^4.0.1",
+    "sweetalert": "^2.1.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

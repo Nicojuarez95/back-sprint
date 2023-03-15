@@ -1,11 +1,11 @@
 import User from '../models/User.js'
 
 async function accountExistsSignIn(req,res,next) {
-    const user = await User.findOne({email: req.body.email})
+    const user = await User.findOne({mail: req.body.mail})
     if (user) {
   req.user = {
             id: user._id,
-            email: user.email,
+            mail: user.mail,
             photo: user.photo,
             password: user.password,
             is_admin: user.is_admin,
@@ -17,7 +17,8 @@ async function accountExistsSignIn(req,res,next) {
     }
     	  return res.status(400).json({
             succes: false,
-            message: 'Wrong credentials'})
+            message: 'Wrong credentials!'
+        })
 }
 
 export default accountExistsSignIn

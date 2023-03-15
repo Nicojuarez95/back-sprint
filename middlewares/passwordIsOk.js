@@ -8,7 +8,8 @@ function passwordIsOk(req, res, next) {
     }
     return res.status(400).json({
         succes: false,
-        message:'wrong credentials!'})
+        message:'wrong credentials!'
+    })
 }
 
 export default passwordIsOk
