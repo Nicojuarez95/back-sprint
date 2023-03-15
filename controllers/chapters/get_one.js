@@ -11,7 +11,7 @@ const controller = {
             let next = await Chapter.findOne({manga_id: chapter.manga_id, order: chapter.order + 1 })
 
 
-            if (chapter && next) { //este incompleto 
+            if (chapter) { //este incompleto 
                 return res.status(200).json({
                     success: true,
                     chapter,
