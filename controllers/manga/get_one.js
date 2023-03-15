@@ -10,7 +10,7 @@ const controller = {
         if(one){
             return res.status(200).json({manga: one})
         } else {
-            return res.status(400).json({
+            return res.status(404).json({
                 success: false,
                 message: "This manga dont exist already!"
             })
