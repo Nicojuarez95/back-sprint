@@ -54,7 +54,11 @@ export let users = [{
     is_online: false,
     photo: "https://i.postimg.cc/7Yj2FytQ/43cc80b4c098e43a988c535eaba42c53-icono-de-usuario-de-persona.png"
 },{
+<<<<<<< HEAD
     name:"silvina",
+=======
+    name: "Silvina",
+>>>>>>> 246ec6bd2b6837e667d8b0ee4b5844755aa9d3c7
     email: "silvina@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
@@ -76,7 +80,11 @@ export let users = [{
     is_online: false,
     photo: "https://i.postimg.cc/2jZbntSQ/image.png"
 },{
+<<<<<<< HEAD
     name:"digital",
+=======
+    name: "digital",
+>>>>>>> 246ec6bd2b6837e667d8b0ee4b5844755aa9d3c7
     email: "digital@team.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
