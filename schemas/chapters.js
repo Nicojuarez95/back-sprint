@@ -1,6 +1,6 @@
 import Joi from "joi-oid";
 
-const schema = Joi.object({
+export const schema = Joi.object({
     manga_id: Joi
         .objectId()
         .required(),
@@ -26,4 +26,20 @@ const schema = Joi.object({
     order: Joi
         .any()
 })
-export default schema
+
+export  const schemaUpdate = Joi.object({
+    manga_id: Joi
+        .objectId()
+        .required(),
+    id: Joi
+        .string(),
+    title: Joi.string().min(1).max(200).message({
+        "any.required" : "Title is a required field",
+        "string.empty" : "Title cannot be an empty field",
+        "string.min" : "Title must have a minimum length {#limit}",
+        "string.max": "Title must have a maximum length {#limit}",
+        "string.base": "Title must be a type of 'text'",
+    }
+    )
+})
+
