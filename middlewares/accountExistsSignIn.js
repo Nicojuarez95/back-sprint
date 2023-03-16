@@ -1,7 +1,7 @@
 import User from '../models/User.js'
 
 async function accountExistsSignIn(req, res, next) {
-    const user = await User.findOne({ email: req.body.mail })
+    const user = await User.findOne({ email: req.body.email })
     if (user) {
         req.user = {
             id: user._id,
