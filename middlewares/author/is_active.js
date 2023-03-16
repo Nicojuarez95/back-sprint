@@ -12,4 +12,5 @@ const author = await Author.findOne({user_id: req.user.id})
     return next()
 }
 
+
 export default is_active
