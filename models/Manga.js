@@ -14,5 +14,4 @@ const schema = new mongoose.Schema(
 )
 
 const Manga = mongoose.model('mangas', schema)
-
 export default Manga

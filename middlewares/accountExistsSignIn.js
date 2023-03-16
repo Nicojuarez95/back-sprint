@@ -1,11 +1,11 @@
 import User from '../models/User.js'
 
 async function accountExistsSignIn(req, res, next) {
-    const user = await User.findOne({ email: req.body.mail })
+    const user = await User.findOne({ eemail: req.body.email })
     if (user) {
         req.user = {
             id: user._id,
-            email: user.email,
+            eemail: user.eemail,
             photo: user.photo,
             password: user.password,
             is_admin: user.is_admin,

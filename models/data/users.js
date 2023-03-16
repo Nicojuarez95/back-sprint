@@ -1,6 +1,6 @@
 export let users = [{
     name: "alejandro",
-    email: "alejandro@mh.com.ar",
+    eemail: "alejandro@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: true,
     is_company: false,
@@ -11,7 +11,7 @@ export let users = [{
     photo: "https://i.postimg.cc/fyJsspq8/image.png"
 },{
     name: "lucas",
-    email: "lucas@mh.com.ar",
+    eemail: "lucas@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: true,
     is_company: false,
@@ -22,7 +22,7 @@ export let users = [{
     photo: "https://i.postimg.cc/fyJsspq8/image.png"
 },{
     name: "jose",
-    email: "jose@mh.com.ar",
+    eemail: "jose@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: true,
     is_company: false,
@@ -33,7 +33,7 @@ export let users = [{
     photo: "https://i.postimg.cc/GhdNvZxV/5831a17a290077c646a48c4db78a81bb-icono-de-perfil-de-usuario-azul.png"
 },{
     name: "eric",
-    email: "eric@mh.com.ar",
+    eemail: "eric@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: true,
     is_company: false,
@@ -44,7 +44,7 @@ export let users = [{
     photo: "https://i.postimg.cc/GhdNvZxV/5831a17a290077c646a48c4db78a81bb-icono-de-perfil-de-usuario-azul.png"
 },{
     name: "igna",
-    email: "igna@mh.com.ar",
+    eemail: "igna@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: true,
     is_company: false,
@@ -59,7 +59,7 @@ export let users = [{
 =======
     name: "Silvina",
 >>>>>>> 246ec6bd2b6837e667d8b0ee4b5844755aa9d3c7
-    email: "silvina@mh.com.ar",
+    eemail: "silvina@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
     is_company: false,
@@ -70,7 +70,7 @@ export let users = [{
     photo: "https://i.postimg.cc/7Yj2FytQ/43cc80b4c098e43a988c535eaba42c53-icono-de-usuario-de-persona.png"
 },{
     name: "peace",
-    email: "peace@team.com.ar",
+    eemail: "peace@team.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
     is_company: true,
@@ -85,7 +85,7 @@ export let users = [{
 =======
     name: "digital",
 >>>>>>> 246ec6bd2b6837e667d8b0ee4b5844755aa9d3c7
-    email: "digital@team.com.ar",
+    eemail: "digital@team.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
     is_company: true,

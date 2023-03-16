@@ -1,6 +1,6 @@
 /**
  * @User
- * @fields mail,password,photo,is_online,is_admin,is_author,is_company,is_verified,verify_code
+ * @fields email,password,photo,is_online,is_admin,is_author,is_company,is_verified,verify_code
  */
 
 /**
@@ -19,7 +19,7 @@
  */
 let users = [
     {
-        mail: "alejandro@mh.com.ar",
+        email: "alejandro@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -29,7 +29,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "lucas@mh.com.ar",
+        email: "lucas@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -39,7 +39,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "jose@mh.com.ar",
+        email: "jose@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -49,7 +49,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "eric@mh.com.ar",
+        email: "eric@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -59,7 +59,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "igna@mh.com.ar",
+        email: "igna@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -69,7 +69,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "silvina@mh.com.ar",
+        email: "silvina@mh.com.ar",
         password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
         is_author: true,
         is_company: false,
@@ -79,7 +79,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "purple@team.com.ar",
+        email: "purple@team.com.ar",
         password: "chau7890",
         is_author: false,
         is_company: true,
@@ -89,7 +89,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "blue@team.com.ar",
+        email: "blue@team.com.ar",
         password: "chau7890",
         is_author: false,
         is_company: true,
@@ -99,7 +99,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "orange@team.com.ar",
+        email: "orange@team.com.ar",
         password: "chau7890",
         is_author: false,
         is_company: true,
@@ -109,7 +109,7 @@ let users = [
         is_online: false,
         photo: "https://conceptodefinicion.de/wp-content/uploads/2016/01/Perfil2.jpg"
     },{
-        mail: "red@team.com.ar",
+        email: "red@team.com.ar",
         password: "chau7890",
         is_author: false,
         is_company: false,

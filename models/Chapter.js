@@ -12,5 +12,4 @@ const schema = new mongoose.Schema(
 )
 
 const Chapter = mongoose.model('chapters', schema)
-
 export default Chapter
