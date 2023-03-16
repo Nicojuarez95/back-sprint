@@ -54,7 +54,7 @@ export let users = [{
     is_online: false,
     photo: "https://i.postimg.cc/7Yj2FytQ/43cc80b4c098e43a988c535eaba42c53-icono-de-usuario-de-persona.png"
 },{
-    name:"silvina",
+    name: "Silvina",
     email: "silvina@mh.com.ar",
     password: "$2a$10$XZBDuOYHcHSzZNzf2ws7Quvu3YmKgSagWRUG1eGlBLSdxJunpN1LC",
     is_author: false,
