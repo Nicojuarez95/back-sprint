@@ -32,8 +32,8 @@ const controller = {
             .skip(pagination.page > 0 ? (pagination.page-1)*pagination.limit : 0)
             .limit(pagination.limit > 0 ? pagination.limit : 0)
             return res.status(200).json({mangas: all})
-        } catch(err) {   
-             next(err)
+        } catch(error) {   
+             next(error)
         }
        
     }    

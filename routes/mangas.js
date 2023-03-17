@@ -12,6 +12,7 @@ import getMe from '../controllers/manga/get_me.js'
 import findId from '../middlewares/auth/find_id.js'
 import updateController from '../controllers/manga/update.js'
 import is_property_of from '../middlewares/author/is_property_of.js'
+import deleteController from '../controllers/manga/destroy.js'
 
 let router = express.Router()
 const { create } = mangaCreate
@@ -20,6 +21,8 @@ const { allMangas } = getMangas
 const { get_one } = getOne
 const { get_me } = getMe
 const { upd } = updateController
+const { dlt } = deleteController
+
 
 router.post("/",passport.authenticate("jwt", { session: false }), is_active, validator(mangaSchema), exist_title, create);
 router.get('/me', passport.authenticate("jwt", { session: false }), findId, get_me)
@@ -27,5 +30,6 @@ router.get("/", all);
 router.get("/view", allMangas)
 router.get('/:id', get_one )
 router.put("/:id", passport.authenticate("jwt", { session: false }), findId, is_active, is_property_of, upd)
+router.delete("/:id", passport.authenticate("jwt", { session: false }), findId, is_active, is_property_of, dlt)
 
 export default router
