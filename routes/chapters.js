@@ -6,12 +6,13 @@ import validator from '../middlewares/validator.js'
 import existsOrder from '../middlewares/exists_order.js'
 import nextOrder from '../middlewares/next_order.js'
 import addFrontPhoto from '../middlewares/add_front_photo.js'
-import chapterController from '../controllers/chapters/get_one.js'
-import getChapters from '../controllers/chapters/get_chapters.js'
-import updateChapter from '../controllers/chapters/update.js'
 import findsID from '../middlewares/auth/find_id.js'
 import isActive from '../middlewares/author/is_active.js'
 import isProperyOf from '../middlewares/author/is_property_of.js'
+import chapterController from '../controllers/chapters/get_one.js'
+import getChapters from '../controllers/chapters/get_chapters.js'
+import updateChapter from '../controllers/chapters/update.js'
+import deleteChapter from '../controllers/chapters/destroy.js'
 
 const router = express.Router()
 
@@ -19,10 +20,12 @@ const {create} = controller
 const { get_one } = chapterController;
 const {get_chapter} = getChapters
 const { update } = updateChapter
+const { destroy } = deleteChapter
 
 router.post("/",passport.authenticate("jwt",{session:false}), validator(schema), existsOrder, nextOrder, addFrontPhoto,create)
 router.get("/:id", get_one )
 router.get('/', get_chapter)
 router.put("/:id", passport.authenticate("jwt",{session:false}), validator(schemaUpdate),findsID, isActive, isProperyOf , update)
+router.delete("/:id", passport.authenticate("jwt",{session:false}),findsID, isActive, isProperyOf , destroy)
 
 export default router
