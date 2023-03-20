@@ -9,7 +9,7 @@
     "data_chapters": "node ./models/data/chapters",
     "data": "node ./models/data/data",
     "test": "mocha --timeout 5000",
-    "test-chapter": "mocha ./test/chapter.test.js" 
+    "test-chapter": "mocha ./test/chapter.test.js --timeout 5000"
   },
   "type": "module",
   "dependencies": {

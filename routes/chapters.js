@@ -16,7 +16,8 @@ const { get_one } = chapterController;
 const {get_chapter} = getChapters
 
 router.post("/",passport.authenticate("jwt",{session:false}), validator(schema), existsOrder, nextOrder, addFrontPhoto,create)
-router.get("/:id", get_one )
 router.get('/', get_chapter)
+router.get("/:id", get_one )
+
 
 export default router
