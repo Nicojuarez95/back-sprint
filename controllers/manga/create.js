@@ -12,12 +12,13 @@ const createManga = {
       return res.status(201).json({
         success: true,
         message: "New Manga created succesfully",
+        manga,
       });
     } catch (err) {
       console.log(err);
       return res.status(400).json({
         success: false,
-        message: "Could not create new Manga",
+        message: "no autorizado",
       });
     }
   },

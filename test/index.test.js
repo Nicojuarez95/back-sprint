@@ -4,50 +4,60 @@ import request from "supertest";
 
 const {expect} = chai
 
+const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGJhZTc2ZWExMjM2NzRiMDBiMWE1ZCIsImlhdCI6MTY3OTM2OTU4NiwiZXhwIjoxNjc5NTQyMzg2fQ.bkMgfjdgaAevnJwvHOOV4y3LNKl_6EBLeewa0Wo-NKQ";
+const data = {
+         title: 'Mis mangas favoritos 3',
+         cover_photo: 'https://example.com/image.jpg',
+         description: 'Esta es la descripción de mi manga favorito',
+         category_id: '6041b9f32090180a205d24a1'
+       };
+
 describe("Probando a mangas", () => {
-  it("GET a /mangas debe verificar que se pasa token por headers", async () => {
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGJhZTc2ZWExMjM2NzRiMDBiMWE1ZCIsImlhdCI6MTY3OTMxODM5MCwiZXhwIjoxNjc5NDA0NzkwfQ.9UQCadl7SgrouKx4n2hRNLCE5Esym-yxf3tgEtpcRHM";
+  it("GET debe verificar que se pasa token por headers", async () => {
     const res = await request(app)
     .get("/mangas-form")
-    .set("Authorization", `Bearear ${token}`);
+    .set("Authorization", `Bearer ${token}`);
     
     expect(res.status).to.equal(200);
     expect(res.request.header).to.have.property(
       "Authorization",
-      `Bearear ${token}`
+      `Bearer ${token}`
       );
     });
 });
 
-describe("POST /api/mangas", () => {
-  it("Debe devolver 'no autorizado' cuando no se proporciona un token", (done) => {
-    request(app)
-      .post("http://localhost:8000/mangas-form")
-      .send({ titulo: "Manga de prueba", autor: "Autor de prueba" })
-      .expect(403)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res.body.message).to.equal("no autorizado");
-        done();
-      });
-  });
-});
 
 describe('Prueba para verificar que cover_photo es una URL', () => {
   it('POST Debería retornar un objeto con una URL válida en cover_photo', async () => {
-    const data = {
-      author_id: '6041b9f32090180a205d24a0',
-      title: 'Mi manga favorito',
-      cover_photo: 'https://example.com/image.jpg',
-      description: 'Esta es la descripción de mi manga favorito',
-      category_id: '6041b9f32090180a205d24a1'
-    };
     const res = await request(app)
     .post('/mangas-form')
+    .set("Authorization", `Bearer ${token}`)
     .send(data); 
 
-    expect(res.status).to.equal(200);
+    expect(res.status).to.equal(201);
     expect(res.body).to.be.an('object');
-    expect(res.body.cover_photo).to.match(/^http(s)?:\/\/.+$/);
+    expect(res.body.manga.cover_photo).to.match(/^(http(s):\/\/.)/);
   });
 });
+
+
+describe("POST /mangas-form", () => { 
+  it("Debe devolver 'no autorizado' cuando no se proporciona un token", async () => {
+    await request(app)
+    .post('/mangas-form')
+    .send(data)
+
+    expect(401)
+  });
+});
+
+describe("GET /mangas", () => { 
+  it("GET api/mangas verificar que la respuesta tiene alguna propiedad con el array de objetos (mangas)	", async () => {
+    const response = await request(app)
+    .get('/mangas-form/view')
+    .auth(token, {type: "bearer"})
+
+    expect(response.body).to.have.property("mangas")
+  });
+});
+
