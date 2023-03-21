@@ -7,6 +7,8 @@ const controller = {
             res.status(201).json({
                 success: true,
                 response: req.body,
+                title: req.body.title,
+                
             })
         } catch (error) {
             res.status(400).json({
@@ -15,6 +17,20 @@ const controller = {
             })
             console.log(error)
         }
-    }
-}
+    },
+//     read: async (req, res) => {
+//         try {
+//             let chapters = await chapter.find()
+//             res.status(200).json({
+//                 success: true,
+//                 response: chapters,
+//             })
+//         } catch {
+//             res.status(400).json({
+//                 success: false,
+//                 response: "Error al obtener el chapter",
+//             })
+//         }
+//     }
+ }
 export default controller

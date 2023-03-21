@@ -3,12 +3,12 @@ import Joi from "joi-oid";
 const schema = Joi.object({
     manga_id: Joi
         .objectId()
-        ,// .required(), agregar despues y sacar coma del principio de la linea
+        .required(),
     title: Joi
         .string()
         .required()
         .min(3)
-        .max(30)
+        // .max(30)
         .message({
             'string.empy': 'The title cannot be empty',
             'string.min': 'The title must be at least 3 characters',
@@ -16,7 +16,8 @@ const schema = Joi.object({
             'string.base': 'Must be string type'
         }),
     pages: Joi
-        .string().uri()
+        // .string().uri()
+        .array().items(Joi.string().uri())
         .required()
         .min(1)
         .message({
