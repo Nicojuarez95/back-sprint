@@ -1,4 +1,5 @@
 import Author from '../../models/Author.js'
+import createError from "http-errors"
 const controller = {
     read_all: async (req, res, next) => {
         try{
@@ -9,12 +10,12 @@ const controller = {
                     author
                 })
             } 
+            return next ( createError(404, "is not author" ))
 
-        } catch (error) {
-            next(error)
+        }catch(error) {
+            return next ( createError(400, error ))
         }
     }
-
 }
 
 export default controller

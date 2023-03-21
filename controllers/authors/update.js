@@ -11,7 +11,7 @@ const controller = {
                     author
                 })
             }
-            return next ( createError(404, "no es author" ))
+            return next ( createError(404, "not found" ))
 
         }catch(error) {
             return next ( createError(400, error ))
