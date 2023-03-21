@@ -14,6 +14,7 @@ const schema = Joi.object({
       }),
     cover_photo: Joi
         .string()
+        .uri()
         .required(),
     description: Joi
         .string()
@@ -27,8 +28,6 @@ const schema = Joi.object({
     category_id: Joi
         .objectId()
         .required(),
-
-
 })
 
 export default schema
