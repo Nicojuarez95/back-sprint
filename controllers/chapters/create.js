@@ -7,6 +7,8 @@ const controller = {
             res.status(201).json({
                 success: true,
                 response: req.body,
+                title: req.body.title,
+                
             })
         } catch (error) {
             res.status(400).json({

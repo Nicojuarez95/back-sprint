@@ -1,7 +1,7 @@
 import Joi from "joi-oid";
 
 const schema = Joi.object({
-    name: Joi.string().required().min(5).max(15).messages({
+    name: Joi.string().min(5).max(15).messages({
         "string.min": "The name must have at least 5 characters",
         "string.max": "The name must have a maximum of 15 characters",
     }),
@@ -15,7 +15,10 @@ const schema = Joi.object({
     country: Joi.string().max(60).messages({
         "string.max": "The country must have a maximum of 60 characters",
     }),
-    date: Joi.date().less("now").messages({
+    date: Joi
+    .date()
+    .raw()
+    .messages({
         invalid: "Not a date",
         "date.less": "The date is greater than the current date",
     }),
