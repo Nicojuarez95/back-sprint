@@ -41,6 +41,7 @@ let newMangas = async(mangas) => {
         let newManga = await Manga.create(manga)
         for (let chapter of manga.chapters) {
             chapter.manga_id = newManga._id
+            // chapter.cover_photo = chapter.pages[0]
             await Chapter.create(chapter)
         }
     }
