@@ -4,14 +4,9 @@ import schema from "../schemas/authors.js";
 import validator from "../middlewares/validator.js"
 import passport from "../middlewares/passport.js";
 
-const {create} = controller;
 let router = express.Router();
+const {create} = controller;
 
-router.post(
-  "/",
-  passport.authenticate("jwt", {session: false}),
-  validator(schema),
-  create
-);
+router.post("/", passport.authenticate("jwt", {session: false}), validator(schema), create);
 
 export default router;
