@@ -12,6 +12,7 @@ const data = {
          category_id: '6041b9f32090180a205d24a1'
        };
 
+
 describe("Probando a mangas", () => {
   it("GET debe verificar que se pasa token por headers", async () => {
     const res = await request(app)
@@ -50,6 +51,8 @@ describe("POST /mangas-form", () => {
     expect(401)
   });
 });
+
+
 
 describe("GET /mangas", () => { 
   it("GET api/mangas verificar que la respuesta tiene alguna propiedad con el array de objetos (mangas)	", async () => {

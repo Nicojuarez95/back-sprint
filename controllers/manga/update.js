@@ -5,10 +5,14 @@ const controller = {
     try {
       let { id } = req.params
       let upd = await Manga.updateOne(
-        {_id: id},//objeto de busqueda
-        req.body //objeto con propiedades a modificar
+        {_id: id},
+        req.body 
       )
-      return res.status(200).json(upd)
+      return res.status(200).json({
+        success: true,
+        message:'Update!',
+        upd
+      })
     } catch (error) {
       next(error)
     }

@@ -7,7 +7,7 @@ const controller = {
 
     let pagination = {
     page: 1,
-    limit: 6
+    limit: 5
     }
 
     if (req.query.title){
