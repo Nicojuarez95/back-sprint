@@ -14,6 +14,7 @@ import getChapters from '../controllers/chapters/get_chapters.js'
 import chapter_readAll from '../controllers/chapters/read_all.js'
 import updateChapter from '../controllers/chapters/update.js'
 import deleteChapter from '../controllers/chapters/destroy.js'
+import chapterIsProperyOF from '../middlewares/author/chapter_is_proterty_of.js'
 
 const router = express.Router()
 
@@ -26,9 +27,11 @@ const {read_all} = chapter_readAll
 
 router.post("/",passport.authenticate("jwt",{session:false}), validator(schema), existsOrder, nextOrder, addFrontPhoto,create)
 router.get("/:id", get_one )
-router.get("/", read_all)
+router.get("/all/:id", read_all)
 router.get('/', get_chapter)
-router.put("/:id", passport.authenticate("jwt",{session:false}), validator(schemaUpdate),findsID, isActive, isProperyOf , update)
-router.delete("/:id", passport.authenticate("jwt",{session:false}),findsID, isActive, isProperyOf , destroy)
+
+router.put("/:id", passport.authenticate("jwt",{session:false}), validator(schemaUpdate),findsID, isActive, chapterIsProperyOF , update)
+
+router.delete("/:id", passport.authenticate("jwt",{session:false}),findsID, isActive, chapterIsProperyOF , destroy)
 
 export default router

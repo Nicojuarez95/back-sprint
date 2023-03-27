@@ -1,7 +1,7 @@
 import Author from '../../models/Author.js'
 
 async function is_active (req, res, next) {
-const author = await Author.findOne({user_id: req.user.id})
+const author = await Author.findOne({user_id: req.user._id})
 
     if (!author?.active) {
         return res.status(400).json({

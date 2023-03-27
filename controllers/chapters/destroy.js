@@ -3,17 +3,25 @@ import Chapter from "../../models/Chapter.js";
 const controller = {
 
     destroy: async (req, res, next) => {
-        try {
-            await Chapter.findOneAndDelete(
-                {_id: req.body._id}
-            )
-            res.status(200).json({
-                succes: true,
-                response: "deleted chapter"
-            })
+        try{
+            let { id } = req.params //destructurar id
+            let dest = await Chapter.findByIdAndDelete(
+                {_id: id} //objetos que recibe el findBy
+                )
+            if(dest){
+                res.status(200).json({
+                    succes: true,
+                    message: 'Chapter removed successfully'
+                })
+            }else{
+                res.status(400).json({
+                    succes: false,
+                    message: 'Could not delete chapter'
+                })
+            }
         }
-        catch (err) {
-            console.log(err)
+        catch(error){
+            next(error)
         }
     }
 }

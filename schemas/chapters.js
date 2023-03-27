@@ -29,8 +29,7 @@ export const schema = Joi.object({
 
 export  const schemaUpdate = Joi.object({
     manga_id: Joi
-        .objectId()
-        .required(),
+        .objectId(),
     id: Joi
         .string(),
     title: Joi.string().min(1).max(200).message({
