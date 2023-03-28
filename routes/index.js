@@ -2,6 +2,7 @@ import userRouter from './auth.js'
 import chapterRouter from './chapters.js'
 import mangasRouter from '../routes/mangas.js'
 import authorRouter from './authors.js'
+import companyRouter from './companies.js'
 
 
 import express from 'express'
@@ -16,6 +17,7 @@ router.use('/auth',userRouter)
 router.use('/chapters',chapterRouter)
 router.use('/mangas-form', mangasRouter)
 router.use('/authors', authorRouter)
+router.use("/companies", companyRouter)
 
 
 
