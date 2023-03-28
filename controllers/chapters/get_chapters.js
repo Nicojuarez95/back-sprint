@@ -14,6 +14,9 @@ const controller = {
         if (req.query.page) { //esto es para que si tiene mas de una pagina se pueda acceder
             pagination.page = req.query.page//si la pag q busca no existe devuelve un array vacio
         }
+        if (req.query.quantity){
+            pagination.limit = req.query.quantity
+        }
         try {
             let chapter = await Chapter.find(chapters)
             .select('title order manga_id pages _id')

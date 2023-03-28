@@ -10,7 +10,8 @@
     "data": "node ./models/data/data",
     "test": "mocha --timeout 5000",
     "test-chapter": "mocha ./test/chapter.test.js",
-    "test-t1": "mocha ./test/index.test.js --timeout 70000"
+    "test-t1": "mocha ./test/index.test.js --timeout 70000",
+    "test-mangas": "mocha ./test/index.test.js"
   },
   "type": "module",
   "dependencies": {

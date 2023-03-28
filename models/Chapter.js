@@ -5,7 +5,8 @@ const schema = new mongoose.Schema(
         manga_id:{ type:mongoose.Types.ObjectId, ref:'mangas', required:true },
         title: { type:String, required:true },
         pages: { type:Array, required:true },
-        order: { type:Number }        
+        order: { type:Number },
+        cover_photo: { type: String}
     },{
         timestamps: true
     }
