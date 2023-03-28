@@ -81,7 +81,6 @@ const controller = {
             next(error)
         }
     },
-
 }
 
 export default controller
