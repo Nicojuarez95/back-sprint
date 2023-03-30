@@ -1,18 +1,24 @@
 import { Comment } from "../../models/Comment.js";
 
 const controller = {
-    create: async (req, res) =>{
+
+    create: async (req, res, next) => {
         try {
-            req.body.user_id = req.user.id
-            await Comment.create(req.body)
-            return res.status(200).json({
+            req.body.user_id = req.user._id
+            if (req.query.chapter_id) {
+                req.body.chapter_id = req.query.chapter_id
+
+            }
+            let comment = await Comment.create(req.body)
+            res.status(201).json({
                 success: true,
-                message: "Comment created",
-                data: req.body
-            });
-        } catch (err) {
-            next (err)
+                response: { text: comment.text, _id: comment._id }
+            })
+            
+        } catch (error) {
+            next(error)
         }
     }
 }
+
 export default controller
