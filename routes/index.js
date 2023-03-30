@@ -4,6 +4,7 @@ import mangasRouter from '../routes/mangas.js'
 import authorRouter from './authors.js'
 import express from 'express'
 import paymentRouter from './payment.js'
+import commentsRouter from './comments.js'
 
 let router = express.Router();
 
@@ -20,7 +21,7 @@ router.use('/payment', paymentRouter)
 router.use('/mangas', mangasRouter)
 router.use('/chapters', chapterRouter)
 router.use('/mangas-form', mangasRouter)
-
+router.use('/comments', commentsRouter)
 
 
 export default router
