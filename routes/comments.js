@@ -13,6 +13,7 @@ let router = express.Router();
 
 const { create } = createComment;
 const { all_from_chapter } = all_from_chapters
+
 const { update } = updateComment
 const { destroy } = deleteComment
 
