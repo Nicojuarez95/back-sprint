@@ -12,6 +12,7 @@ let router = express.Router();
 
 const { create } = createComment;
 const { all_from_chapter } = all_from_chapters
+
 const { update } = updateComment
 
 router.post('/', passport.authenticate("jwt", {session: false}), validator(createSchema), create);
