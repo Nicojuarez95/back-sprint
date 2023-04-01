@@ -9,6 +9,7 @@ import is_property_of from '../middlewares/comments/is_property_of.js'
 import deleteComment from '../controllers/comments/destroy.js'
 
 
+
 let router = express.Router();
 
 const { create } = createComment;
@@ -16,9 +17,11 @@ const { all_from_chapter } = all_from_chapters
 const { update } = updateComment
 const { destroy } = deleteComment
 
+
 router.post('/', passport.authenticate("jwt", {session: false}), validator(createSchema), create);
 router.get('/', passport.authenticate("jwt", {session: false}), all_from_chapter);
 router.put('/:id', passport.authenticate("jwt", {session: false}), validator(createSchema), is_property_of, update)
 router.delete('/:id', passport.authenticate("jwt", {session: false}), is_property_of, destroy)
+
 
 export default router
